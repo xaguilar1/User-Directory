@@ -1,6 +1,6 @@
 {
   "homepage": "https://xarroyo1.github.io/User-Directory/",
-  "name": "employee-directory",
+  "name": "user-directory",
   "version": "0.1.0",
   "private": false,
   "dependencies": {
