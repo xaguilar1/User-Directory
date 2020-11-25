@@ -13,7 +13,7 @@ original_data: [] }
 
   
 
-//this will list the people on the dashboard 
+//this will list the people on the dashboard from API 
 
 componentDidMount() {
     API.retrievePeople()
@@ -21,12 +21,12 @@ componentDidMount() {
       
       //peoples demo info
 
-        const people = results.data.results.map(x => ({
-          first_name: x.name.first,
-          last_name: x.name.last,
-          email: x.email,
-          dob: x.dob.date,
-          img: x.picture.thumbnail
+        const people = results.data.results.map(employee => ({
+          first_name: employee.name.first,
+          last_name: employee.name.last,
+          email: employee.email,
+          dob: employee.dob.date,
+          img: employee.picture.thumbnail
         }))
 
         this.setState({ list: people, original_data: people })
@@ -39,10 +39,10 @@ componentDidMount() {
       value = value.toLowerCase()
 
     this.setState({
-      list: this.state.original_data.filter(x => x.first_name.toLowerCase().includes(value) ||
-        x.last_name.toLowerCase().includes(value) ||
-        x.email.toLowerCase().includes(value) ||
-        x.dob.toLowerCase().includes(value))
+      list: this.state.original_data.filter(employee => employee.first_name.toLowerCase().includes(value) ||
+        employee.last_name.toLowerCase().includes(value) ||
+        employee.email.toLowerCase().includes(value) ||
+        employee.dob.toLowerCase().includes(value))
     })
 
   }
