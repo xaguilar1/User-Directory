@@ -8,13 +8,18 @@ import API from './utils/API';
 
 class App extends React.Component {
   state = {
-    list: [],
-    original_data: []
-  }
+ list: [],
+original_data: [] }
 
-  componentDidMount() {
+  
+
+//this will list the people on the dashboard 
+
+componentDidMount() {
     API.retrievePeople()
       .then(results => {
+      
+      //peoples demo info
 
         const people = results.data.results.map(x => ({
           first_name: x.name.first,
@@ -39,12 +44,7 @@ class App extends React.Component {
         x.email.toLowerCase().includes(value) ||
         x.dob.toLowerCase().includes(value))
     })
-    // another way to do the above
-    // this.setState({
-    //   list: this.state.original_data.filter(x =>
-    //     Object.values(x).map(x => x.toLowerCase()).some(x => x.includes(value))
-    //   )
-    // })
+
   }
 
   render() {
