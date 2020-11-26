@@ -20,12 +20,12 @@ function EmployeeTable(props) {
       <tbody>
       
         {
-          props.list.map((x, i) => <tr key={i + "-key"}>
-            <td><img src={x.img} alt="thumbnail" /></td>
-            <td>{x.first_name}</td>
-            <td>{x.last_name}</td>
-            <td>{x.email}</td>
-            <td>{moment(x.dob).format("MM-DD-YYYY")}</td>
+          props.list.map((employee, i) => <tr key={i + "-key"}>
+            <td><img src={employee.img} alt="thumbnail" /></td>
+            <td>{employee.first_name}</td>
+            <td>{employee.last_name}</td>
+            <td>{employee.email}</td>
+            <td>{moment(employee.dob).format("MM-DD-YYYY")}</td>
           </tr>)
         }
       </tbody>
