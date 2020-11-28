@@ -28,7 +28,8 @@ function EmployeeTable(props) {
         {/* //table with employee info */}
       
         {
-          props.list.map((employee, i) => <tr key={i + "-key"}>
+          props.list.map((employee) => 
+          <tr>
             <td><img src={employee.img} alt="thumbnail" /></td>
             <td>{employee.first_name}</td>
             <td>{employee.last_name}</td>
