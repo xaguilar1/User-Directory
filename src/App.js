@@ -1,9 +1,9 @@
 import React from "react";
-import EmployeeSearch from './components/EmployeeSearch';
 import EmployeeTable from './components/EmployeeTable';
-import Jumbotron from './components/Jumbotron';
-import Wrapper from './components/Wrapper';
+import EmployeeSearch from "./components/SearchEmp";
+import Jumbotron from './components/Header';
 import API from './utils/API';
+
 
 
 class App extends React.Component {
@@ -13,23 +13,23 @@ original_data: [] }
 
   
 
-//this will list the people on the dashboard 
+//this will list the people on the dashboard from API 
 
 componentDidMount() {
     API.retrievePeople()
       .then(results => {
       
-      //peoples demo info
 
-        const people = results.data.results.map(x => ({
-          first_name: x.name.first,
-          last_name: x.name.last,
-          email: x.email,
-          dob: x.dob.date,
-          img: x.picture.thumbnail
+        const employees = results.data.results.map(employee => ({
+          img: employee.picture.thumbnail,
+          first_name: employee.name.first,
+          last_name: employee.name.last,
+          email: employee.email,
+          dob: employee.dob.date,
+          
         }))
 
-        this.setState({ list: people, original_data: people })
+        this.setState({ list: employees, original_data: employees })
       })
       .catch(err => console.warn(err))
   }
@@ -39,23 +39,25 @@ componentDidMount() {
       value = value.toLowerCase()
 
     this.setState({
-      list: this.state.original_data.filter(x => x.first_name.toLowerCase().includes(value) ||
-        x.last_name.toLowerCase().includes(value) ||
-        x.email.toLowerCase().includes(value) ||
-        x.dob.toLowerCase().includes(value))
+      list: this.state.original_data.filter(employee => 
+        employee.first_name.toLowerCase().includes(value) ||
+        employee.last_name.toLowerCase().includes(value) ||
+        employee.email.toLowerCase().includes(value) ||
+        employee.dob.toLowerCase().includes(value))
     })
 
   }
 
+
+  //jumbotron heading
+
   render() {
     return <>
-    <Wrapper>
     <Jumbotron>
       <h1 className="display-4">Employee Directory</h1>
       <EmployeeSearch handleSearch={this.handleSearch} />
     </Jumbotron>
       <EmployeeTable list={this.state.list} />
-      </Wrapper>
     </>
   }
 }

@@ -5,7 +5,7 @@ export default (props) => {
         <>
     <div className="text-center">
     <input type="text" className="" placeholder="Search Employees" 
-    onChange={e => props.handleSearch(e.target.value)} />
+    onChange={employee => props.handleSearch(employee.target.value)} />
     </div>
     </>
     )
