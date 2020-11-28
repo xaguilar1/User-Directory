@@ -2,7 +2,7 @@
 
 Deployed version here: https://xarroyo1.github.io/User-Directory/
 
-<img width="1102" alt="Screen Shot 2020-11-21 at 7 24 59 PM" src="https://user-images.githubusercontent.com/65522080/99890623-5836bf00-2c2f-11eb-8c19-98124636f238.png">
+<img width="1246" alt="Screen Shot 2020-11-28 at 9 01 03 AM" src="https://user-images.githubusercontent.com/65522080/100517394-420d8f00-3158-11eb-8413-1246883f6db5.png">
 
 
 ## User Story
